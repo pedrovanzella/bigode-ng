@@ -12,6 +12,16 @@ class User < ActiveRecord::Base
   
   validates :username, presence: true, uniqueness: true
 
+  # Following and followers
+  has_many :followeds, :class_name => "Following",
+                       :foreign_key => "follower_id"
+  has_many :follows, :through => :followeds,
+                     :source => :user
+
+  has_many :followings
+  has_many :followers, :through => :followings
+
+
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
