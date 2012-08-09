@@ -3,9 +3,10 @@
   <% if current_user.follows.include?(@user) %>
     <%= link_to "Unfollow", @user.followings & current_user.followeds,
       :method => :delete,
-      :prompt => "Are you sure?" %>
+      :class => "btn btn-large btn-danger" %>
   <% else %>
     <%= link_to "Follow", followings_path(:follow => @user.id),
-      :method => :post %>
+      :method => :post,
+      :class => "btn btn-large btn-primary" %>
   <% end %>
 <% end %>
