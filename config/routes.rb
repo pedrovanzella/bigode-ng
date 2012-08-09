@@ -1,4 +1,14 @@
 BigodeNg::Application.routes.draw do
+  get "subscriptions/new"
+
+  get "subscriptions/create"
+
+  get "subscriptions/index"
+
+  get "subscriptions/show"
+
+  get "subscriptions/destroy"
+
   devise_for :users
   
   match '/users/:username' => 'users#show', :as => :users, :via => :get
