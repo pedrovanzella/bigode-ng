@@ -6,7 +6,8 @@ gem 'rails', '3.2.7'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-gem 'bcrypt-ruby', :require => 'bcrypt'
+
+gem 'devise'
 
 # For static pages
 gem 'high_voltage'
