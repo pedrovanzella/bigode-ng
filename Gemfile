@@ -8,6 +8,8 @@ gem 'rails', '3.2.7'
 gem 'sqlite3'
 
 gem 'devise'
+gem 'feedzirra'
+gem 'home_run'
 
 # For static pages
 gem 'high_voltage'

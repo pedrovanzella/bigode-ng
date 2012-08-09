@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120809184016) do
+ActiveRecord::Schema.define(:version => 20120809224158) do
+
+  create_table "feeds", :force => true do |t|
+    t.string   "title"
+    t.string   "url"
+    t.string   "feed_url"
+    t.string   "etag"
+    t.date     "last_modified"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
   create_table "followings", :force => true do |t|
     t.integer  "user_id"
@@ -22,6 +32,18 @@ ActiveRecord::Schema.define(:version => 20120809184016) do
 
   add_index "followings", ["follower_id"], :name => "index_followings_on_follower_id"
   add_index "followings", ["user_id"], :name => "index_followings_on_user_id"
+
+  create_table "stories", :force => true do |t|
+    t.string   "title"
+    t.string   "url"
+    t.string   "author"
+    t.text     "summary"
+    t.text     "content"
+    t.date     "published"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "feed_id"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
