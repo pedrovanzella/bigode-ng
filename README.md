@@ -27,5 +27,4 @@ SubscriptionsController
 
 User
 	has many subscriptions
-	has many feed through subscriptions
-	_FOLLOW AND UNFOLLOW_
+	has many feeds through subscriptions
