@@ -28,9 +28,9 @@
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
-              <li><a href="#">Profile</a> </li>
+              <li><%= link_to "Profile", edit_user_registration_path %></li>
               <li class="divider"></li>
-              <li><%= link_to "Log out", log_out_path %></li>
+              <li><%= link_to "Log out", destroy_user_session_path, :method => :delete %></li>
             </ul>
           </div>
         <% end %>
@@ -39,8 +39,8 @@
             <li><%= link_to "Home", root_path %></li>
             <li><%= link_to "About", page_path("about") %></li>
             <% unless current_user %>
-              <li><%= link_to "Sign up", sign_up_path %></li>
-              <li><%= link_to "Log in", log_in_path %></li>
+              <li><%= link_to "Sign up", new_user_registration_path %></li>
+              <li><%= link_to "Log in", new_user_session_path %></li>
             <% end %>
           </ul>
         </div>

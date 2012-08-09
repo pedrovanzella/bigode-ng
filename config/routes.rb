@@ -1,13 +1,7 @@
 BigodeNg::Application.routes.draw do
   devise_for :users
 
-  get "log_in" => "sessions#new", :as => "log_in"
-  get "log_out" => "sessions#destroy", :as => "log_out"
-
-  get "sign_up" => "users#new", :as => "sign_up"
   root :to => "high_voltage/pages#show", :id => 'home'
-  resource :users
-  resource :sessions
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
