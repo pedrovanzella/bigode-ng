@@ -1,5 +1,7 @@
 BigodeNg::Application.routes.draw do
   devise_for :users
+  
+  match '/users/:username' => 'users#show', :as => :users, :via => :get
 
   root :to => "high_voltage/pages#show", :id => 'home'
 
