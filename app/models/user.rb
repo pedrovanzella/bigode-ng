@@ -21,6 +21,9 @@ class User < ActiveRecord::Base
   has_many :followings
   has_many :followers, :through => :followings
 
+  has_many :subscriptions
+  has_many :feeds, :through => :subscriptions
+
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
