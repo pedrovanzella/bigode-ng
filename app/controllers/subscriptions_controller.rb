@@ -6,24 +6,22 @@ class SubscriptionsController < ApplicationController
     @feed = Feed.find_by_feed_url(params[:feed][:feed_url])
     if current_user.feeds.include? @feed
       flash[:warning] = "Already subscribed to this feed"
-      redirect_to :back
-    end
-    if @feed
+    elsif @feed
       # Feed already exists, just subscribe
-      current_user.feed << @feed
-      redirect_to :back
+      current_user.feeds << @feed
+      current_user.save
     else
       # Feed does not exist, create it and subscribe
       @feed = Feed.new(params[:feed])
       if @feed.save
         current_user.feeds << @feed
+        current_user.save
         flash[:notice] = "Subscribed!"
-        redirect_to :back
       else
         flash[:error] = "Could not save feed"
-        redirect_to :back
       end
     end
+    redirect_to :back
   end
 
   def index

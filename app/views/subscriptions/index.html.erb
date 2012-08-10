@@ -1,2 +1,14 @@
-<h1>Subscriptions#index</h1>
-<p>Find me in app/views/subscriptions/index.html.erb</p>
+<h1>Feeds</h1>
+
+<%= form_for @feed, :as => :feed, :url => subscribe_path, :method => :post, :html => { :class => 'well form-inline' } do |f| %>
+  <%= f.text_field :feed_url, :class => 'input-large', :placeholder => 'Feed URL' %>
+  <%= f.submit "Subscribe", :class => 'btn' %>
+<% end %>
+
+<div class="content">
+  <ul class="nav nav-tabs nav-stacked">
+    <% @feeds.each do |f| %>
+      <li><%= link_to "#{f.title} - #{f.url}", feed_path(f) %></li>
+    <% end %>
+  </ul>
+</div>

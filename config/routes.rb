@@ -1,13 +1,12 @@
 BigodeNg::Application.routes.draw do
-  get "subscriptions/new"
 
-  get "subscriptions/create"
+  match 'feeds/subscribe' => 'subscriptions#create', :as => :subscribe, :via => :post
 
-  get "subscriptions/index"
+  match 'feeds' => 'subscriptions#index', :as => :feeds
 
-  get "subscriptions/show"
+  match 'feeds/:id' => 'subscriptions#show', :as => :feed, :via => :get
 
-  get "subscriptions/destroy"
+  match 'feeds/unsubscribe' => 'subscriptions#destroy', :as => :unsubscribe, :via => :delete
 
   devise_for :users
   
