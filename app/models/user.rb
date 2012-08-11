@@ -24,6 +24,9 @@ class User < ActiveRecord::Base
   has_many :subscriptions
   has_many :feeds, :through => :subscriptions
 
+  # We need to relate the user model to the story model somehow, in order to keep read, stared and liked status
+  has_many :user_stories
+  has_many :stories, :through => :user_stories
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
