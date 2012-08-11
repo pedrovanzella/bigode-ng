@@ -23,6 +23,6 @@ class SharedStoriesController < ApplicationController
   end
 
   def index
-    @shared_stories = SharedStory.order("created_at DESC").find_all_by_user_id(params[:user_id])
+    @shared_stories = SharedStory.order("created_at DESC").find_all_by_username(params[:username])
   end
 end

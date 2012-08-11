@@ -8,9 +8,13 @@ BigodeNg::Application.routes.draw do
 
   match 'feeds/unsubscribe' => 'subscriptions#destroy', :as => :unsubscribe, :via => :delete
 
+  resources :shared_stories, :only => [:create, :destroy]
+
   devise_for :users
   
   match '/users/:username' => 'users#show', :as => :users, :via => :get
+
+  match 'users/:username/shared' => 'shared_stories#index', :as => :shared, :via => :get
 
   root :to => "high_voltage/pages#show", :id => 'home'
 
