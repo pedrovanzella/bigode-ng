@@ -28,6 +28,12 @@ class User < ActiveRecord::Base
   has_many :user_stories
   has_many :stories, :through => :user_stories
 
+  # User shares stories and his friends see them
+  has_many :shared_stories
+
+  # User can comment on shared stories (his own or his friends)
+  has_many :comments
+
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
