@@ -6,6 +6,9 @@ require "minitest/rails"
 require "minitest/matchers"
 require "minitest/pride"
 
+require "miniskirt"
+require "factories"
+
 # Uncomment if you want Capybara in accceptance/integration tests
 # require "minitest/rails/capybara"
 

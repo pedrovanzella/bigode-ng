@@ -37,6 +37,7 @@ group :test, :development do
   gem 'minitest-rails'
   gem 'minitest-matchers'
   gem 'shoulda-matchers'
+  gem 'miniskirt'
 end
 
 # To use ActiveModel has_secure_password

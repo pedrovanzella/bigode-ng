@@ -82,6 +82,8 @@ GEM
       treetop (~> 1.4.8)
     method_source (0.8)
     mime-types (1.19)
+    miniskirt (1.1.1)
+      activesupport (>= 2.2)
     minitest (3.3.0)
     minitest-matchers (1.2.0)
       minitest (>= 2.5.0)
@@ -167,6 +169,7 @@ DEPENDENCIES
   high_voltage
   home_run
   jquery-rails
+  miniskirt
   minitest-matchers
   minitest-rails
   pry-rails
