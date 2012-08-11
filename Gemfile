@@ -33,6 +33,12 @@ group :development do
   gem 'pry-rails'
 end
 
+group :test, :development do
+  gem 'minitest-rails'
+  gem 'minitest-matchers'
+  gem 'shoulda-matchers'
+end
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
