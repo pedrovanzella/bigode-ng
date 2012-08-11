@@ -5,7 +5,7 @@
 <p><strong>etag:</strong> <%= @feed.etag %></p>
 
 <div class="well content">
-  <% @feed.stories.each do |story| %>
+  <% @stories.each do |story| %>
     <p><strong>Title:</strong> <%= link_to story.title, story.url %></p>
     <div class="well">
       <p><strong>Author:</strong> <%= story.author %></p>

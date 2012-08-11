@@ -30,7 +30,9 @@ class SubscriptionsController < ApplicationController
 
   def show
     @feed = Feed.find(params[:id])
-    # TODO: Filter and only show stories that are unread?
+    @subscription = Subscription.find_by_user_id_and_feed_id(current_user, @feed)
+    @subscription.sync
+    @stories = @subscription.stories
   end
 
   def destroy
