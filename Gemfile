@@ -9,7 +9,7 @@ gem 'sqlite3'
 
 gem 'devise'
 gem 'feedzirra'
-gem 'home_run'
+gem 'home_run', :require => 'date'
 
 # For static pages
 gem 'high_voltage'

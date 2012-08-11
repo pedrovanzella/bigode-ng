@@ -1,0 +1,2 @@
+class SharedStoriesController < ApplicationController
+end
