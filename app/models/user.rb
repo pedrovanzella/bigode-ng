@@ -42,4 +42,8 @@ class User < ActiveRecord::Base
       where(conditions).first
     end
   end
+
+  def subscribe(feed)
+    self.feeds << feed
+  end
 end
