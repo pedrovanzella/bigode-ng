@@ -5,7 +5,7 @@ describe User do
     @user = Factory(:user)
   end
 
-  describe "subscribing to feeds" do
+  describe "subscriptions" do
     before do
       @feed = Factory(:feed)
     end
@@ -15,5 +15,11 @@ describe User do
       @user.feeds.first.must_equal @feed
     end
 
+    it "can unsubscribe" do
+      @user.subscribe(@feed)
+      @user.unsubscribe(@feed)
+      @user.feeds.must_be_empty
+      @feed.wont_be_nil
+    end
   end
 end
