@@ -53,7 +53,7 @@ class User < ActiveRecord::Base
   end
 
   def unsubscribe(feed)
-    feed = self.feeds.find(feed)
     self.feeds.delete(feed)
   end
+
 end

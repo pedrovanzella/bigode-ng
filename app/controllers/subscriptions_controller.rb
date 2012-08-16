@@ -3,25 +3,8 @@ class SubscriptionsController < ApplicationController
   before_filter :authenticate_user!
 
   def create
-    @feed = Feed.find_by_feed_url(params[:feed][:feed_url])
-    if current_user.feeds.include? @feed
-      flash[:warning] = "Already subscribed to this feed"
-    elsif @feed
-      # Feed already exists, just subscribe
-      current_user.feeds << @feed
-      current_user.save
-    else
-      # Feed does not exist, create it and subscribe
-      @feed = Feed.new(params[:feed])
-      if @feed.save
-        current_user.feeds << @feed
-        current_user.save
-        flash[:notice] = "Subscribed!"
-      else
-        flash[:error] = "Could not save feed"
-      end
-    end
-    redirect_to :back
+    current_user.subscribe_url(params[:feed][:feed_url])
+   redirect_to :back
   end
 
   def index
@@ -36,11 +19,7 @@ class SubscriptionsController < ApplicationController
   end
 
   def destroy
-    @feed = Feed.find_by_feed_url(params[:feed_url])
-    if @feed
-      current_user.feeds.delete(@feed)
-    else
-      flash[:error] = "Could not unsubscribe, feed does not exist"
-    end
+    feed = Feed.find(params[:id])
+    current_user.unsubscribe(feed)
   end
 end
