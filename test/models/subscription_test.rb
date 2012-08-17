@@ -19,11 +19,25 @@ describe Subscription do
     @feed.wont_be_nil
   end
 
-  it "subscribes to new feed" do
-    url = "http://new_url.com/feed.xml"
-    @user.subscribe_url(url)
-    feed = Feed.find_by_feed_url(url)
-    feed.wont_be_nil # Created feed
-    @user.feeds.must_include feed
+  describe "subscribes to new feed" do
+    before do
+      @url = "http://new_url.com/feed.xml"
+      @user.subscribe_url(@url)
+    end
+
+    it "creates a new feed" do
+      @feed = Feed.find_by_feed_url(@url)
+      @feed.wont_be_nil # Created feed
+    end
+
+    it "subscribes user to feed" do
+      @feed = Feed.find_by_feed_url(@url)
+      @user.feeds.must_include @feed
+    end
+
+    it "does not create a duplicate feed" do
+      feeds = Feed.find_all_by_feed_url(@url)
+      feeds.count.must_equal 1 # Must not create a duplicate
+    end
   end
 end
