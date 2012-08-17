@@ -43,3 +43,9 @@ end
 
 MiniTest::Rails.override_testunit!
 
+Turn.config do |c|
+  c.format = :outline
+  c.trace = true
+  c.natural = true
+end
+
