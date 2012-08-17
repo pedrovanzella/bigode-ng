@@ -20,6 +20,7 @@ describe Subscription do
   end
 
   describe "subscribes to new feed" do
+
     before do
       @url = "http://new_url.com/feed.xml"
       @user.subscribe_url(@url)
@@ -33,6 +34,15 @@ describe Subscription do
     it "subscribes user to feed" do
       @feed = Feed.find_by_feed_url(@url)
       @user.feeds.must_include @feed
+    end
+  end
+
+  describe "subscribes to url from existing feed" do
+
+    before do
+      @url = "http://new_url.com/feed.xml"
+      @user.subscribe_url(@url)
+      @user.subscribe_url(@url)
     end
 
     it "does not create a duplicate feed" do

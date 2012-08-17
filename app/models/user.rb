@@ -44,12 +44,14 @@ class User < ActiveRecord::Base
   end
 
   def subscribe(feed)
-    self.feeds << feed
+    unless self.feeds.include? feed
+      self.feeds << feed 
+    end
   end
   
   def subscribe_url(url)
     feed = Feed.find_by_feed_url(url) || Feed.create(feed_url: url)
-    self.subscribe feed unless self.feeds.include? feed
+    self.subscribe feed
   end
 
   def unsubscribe(feed)
