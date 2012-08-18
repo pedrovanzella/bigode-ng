@@ -5,4 +5,28 @@ class UserStory < ActiveRecord::Base
   belongs_to :story
   belongs_to :feed
   belongs_to :subscription
+
+  def like
+    self.liked = true
+  end
+
+  def unlike
+    self.liked = false
+  end
+
+  def mark_as_read
+    self.read = true
+  end
+
+  def mark_as_unread
+    self.read = false
+  end
+
+  def star
+    self.stared = true
+  end
+
+  def unstar
+    self.stared = false
+  end
 end

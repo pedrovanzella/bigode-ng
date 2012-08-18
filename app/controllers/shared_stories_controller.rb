@@ -1,5 +1,7 @@
 class SharedStoriesController < ApplicationController
 
+  before_filter :authenticate_user!
+
   def create
     @shared_story = SharedStory.create(params)
     if @shared_story
