@@ -76,6 +76,7 @@ Vagrant::Config.run do |config|
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = ["cookbooks","cookbooks-src"]
 
+    chef.add_recipe "apt"
     chef.add_recipe "curl"
     chef.add_recipe "postgresql"
     chef.add_recipe "postgresql::server"
@@ -86,8 +87,7 @@ Vagrant::Config.run do |config|
         password: {
           postgres: "postgres"
         }
-      },
-      run_list: ["recipe[postgresql::server]"]
+      }
     }
   end
 
