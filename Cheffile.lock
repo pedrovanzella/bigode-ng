@@ -1,0 +1,50 @@
+SITE
+  remote: http://community.opscode.com/api/v1
+  specs:
+    build-essential (1.3.4)
+    nginx (1.3.0)
+      build-essential (>= 0.0.0)
+      ohai (>= 1.1.4)
+    ohai (1.1.8)
+    runit (1.0.4)
+      build-essential (>= 0.0.0)
+    unicorn (1.2.0)
+
+GIT
+  remote: git://github.com/DanThiffault/rails-lastmile.git
+  ref: master
+  sha: 9d84a4ba91aa510bdfa31aa23f8b546a33815f47
+  specs:
+    rails-lastmile (0.1.0)
+
+GIT
+  remote: git://github.com/fnichol/chef-rbenv
+  ref: v0.6.10
+  sha: dee3edd9f1118aff336539a8e3497704da2aebff
+  specs:
+    rbenv (0.6.10)
+
+GIT
+  remote: git://github.com/fnichol/chef-ruby_build.git
+  ref: v0.6.2
+  sha: 2e45dc11b4f98175cc1f70ad254e22aab213cfb4
+  specs:
+    ruby_build (0.6.2)
+
+GIT
+  remote: https://github.com/opscode-cookbooks/apt
+  ref: master
+  sha: fbeb0d4f75fcd9906ca9f860983f13bf46fd96c5
+  specs:
+    apt (1.9.0)
+
+DEPENDENCIES
+  apt (>= 0)
+  build-essential (>= 0)
+  nginx (>= 0)
+  rails-lastmile (>= 0)
+  rbenv (>= 0)
+  ruby_build (>= 0)
+  runit (>= 0)
+  unicorn (>= 0)
+
