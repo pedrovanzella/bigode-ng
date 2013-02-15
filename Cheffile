@@ -15,4 +15,4 @@ cookbook 'unicorn'
 cookbook 'nginx'
 cookbook 'runit'
 cookbook 'rails-lastmile',
-  :git => 'git://github.com/DanThiffault/rails-lastmine.git'
+  :git => 'git://github.com/DanThiffault/rails-lastmile.git'
