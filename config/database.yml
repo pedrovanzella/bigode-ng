@@ -13,3 +13,11 @@ test:
   pool: 5
   username: pedrovanzella
   password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: bigode-ng
+  pool: 5
+  username: postgres
+  password: postgres

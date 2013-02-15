@@ -5,10 +5,16 @@ site 'http://community.opscode.com/api/v1'
 
 cookbook 'build-essential'
 
+cookbook 'networking_basic'
+cookbook "curl",
+  :path => "cookbooks-src/curl"
+
+cookbook "postgresql"
+
 cookbook 'ruby_build',
-  :git => 'git://github.com/fnichol/chef-ruby_build.git', :ref => 'v0.6.2'
+  :git => 'git://github.com/fnichol/chef-ruby_build.git'
 cookbook 'rbenv',
-  :git => 'git://github.com/fnichol/chef-rbenv', :ref => 'v0.6.10'
+  :git => 'git://github.com/fnichol/chef-rbenv'
 cookbook 'apt',
   :git => 'https://github.com/opscode-cookbooks/apt'
 cookbook 'unicorn'
